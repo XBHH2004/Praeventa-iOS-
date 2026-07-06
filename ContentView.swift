@@ -1,62 +1,147 @@
 import SwiftUI
 
 struct ContentView: View {
-
     var body: some View {
+        TabView {
+            HomeView().tabItem { Label("Start", systemImage: "house.fill") }
+            EmergencyView().tabItem { Label("Notfall", systemImage: "cross.case.fill") }
+            KnowledgeView().tabItem { Label("Wissen", systemImage: "book.fill") }
+            FavoritesView().tabItem { Label("Favoriten", systemImage: "star.fill") }
+            SettingsView().tabItem { Label("Einstellungen", systemImage: "gearshape.fill") }
+        }
+    }
+}
 
+struct HomeView: View {
+    var body: some View {
         NavigationStack {
-
-            VStack(spacing: 30) {
-
+            VStack(spacing: 24) {
                 Spacer()
-
                 Image(systemName: "cross.case.fill")
-                    .font(.system(size: 80))
+                    .font(.system(size: 72))
                     .foregroundStyle(.red)
-
                 Text("PRAEVENTA")
                     .font(.largeTitle)
                     .fontWeight(.bold)
-
                 Text("Wissen. Handeln. Helfen.")
-                    .foregroundStyle(.gray)
-
+                    .foregroundStyle(.secondary)
                 Spacer()
+                Text("Startseite")
+                    .font(.title2)
+                    .fontWeight(.semibold)
+                Spacer()
+            }
+            .padding()
+            .navigationTitle("Start")
+        }
+    }
+}
 
-                VStack(spacing: 20) {
+struct EmergencyView: View {
+    let emergencies = [
+        ("Bewusstlosigkeit", "person.fill.questionmark", Color.red),
+        ("Herzstillstand", "heart.fill", Color.red),
+        ("Schlaganfall", "brain.head.profile", Color.orange),
+        ("Herzinfarkt", "waveform.path.ecg", Color.red),
+        ("Atemnot", "lungs.fill", Color.blue),
+        ("Starke Blutung", "drop.fill", Color.red),
+        ("Verbrennung", "flame.fill", Color.orange),
+        ("Vergiftung", "pills.fill", Color.purple)
+    ]
 
-                    Button("🚨 Notfall") {
+    var body: some View {
+        NavigationStack {
+            ScrollView {
+                VStack(spacing: 14) {
+                    ForEach(emergencies, id: \.0) { item in
+                        NavigationLink {
+                            EmergencyDetailView(title: item.0)
+                        } label: {
+                            HStack {
+                                Image(systemName: item.1)
+                                    .font(.title2)
+                                    .foregroundStyle(.white)
+                                    .frame(width: 46, height: 46)
+                                    .background(item.2)
+                                    .clipShape(RoundedRectangle(cornerRadius: 14))
 
+                                VStack(alignment: .leading, spacing: 4) {
+                                    Text(item.0)
+                                        .font(.headline)
+
+                                    Text("Schritt-für-Schritt Anleitung")
+                                        .font(.caption)
+                                        .foregroundStyle(.secondary)
+                                }
+
+                                Spacer()
+
+                                Image(systemName: "chevron.right")
+                                    .foregroundStyle(.secondary)
+                            }
+                            .padding()
+                            .background(.thinMaterial)
+                            .clipShape(RoundedRectangle(cornerRadius: 18))
+                            .padding(.horizontal)
+                        }
+                        .buttonStyle(.plain)
                     }
-
-                    .frame(maxWidth: .infinity)
-                    .frame(height: 60)
-                    .background(Color.red)
-                    .foregroundColor(.white)
-                    .clipShape(RoundedRectangle(cornerRadius: 18))
-
-                    Button("🩺 Symptome") {
-
-                    }
-
-                    .frame(maxWidth: .infinity)
-                    .frame(height: 60)
-                    .background(Color.blue)
-                    .foregroundColor(.white)
-                    .clipShape(RoundedRectangle(cornerRadius: 18))
-
                 }
+                .padding(.top)
+            }
+            .navigationTitle("Notfall")
+        }
+    }
+}
 
-                .padding()
+struct EmergencyDetailView: View {
+    let title: String
 
+    var body: some View {
+        List {
+            Section("Sofortmaßnahmen") {
+                Text("1. Eigenschutz beachten.")
+                Text("2. Person laut ansprechen und vorsichtig rütteln.")
+                Text("3. Atmung prüfen.")
+                Text("4. Notruf 112 wählen.")
+                Text("5. Bei normaler Atmung: stabile Seitenlage.")
+                Text("6. Bei keiner normalen Atmung: Reanimation beginnen.")
             }
 
-            .padding()
-
+            Section("Wichtig") {
+                Text("Diese App ersetzt keinen Notruf. Bei Lebensgefahr sofort 112 wählen.")
+                    .foregroundStyle(.red)
+            }
         }
-
+        .navigationTitle(title)
     }
+}
 
+struct KnowledgeView: View {
+    var body: some View {
+        NavigationStack {
+            Text("Medizinisches Wissen")
+                .navigationTitle("Wissen")
+        }
+    }
+}
+
+struct FavoritesView: View {
+    var body: some View {
+        NavigationStack {
+            Text("Noch keine Favoriten")
+                .navigationTitle("Favoriten")
+        }
+    }
+}
+
+struct SettingsView: View {
+    var body: some View {
+        NavigationStack {
+            Text("Einstellungen")
+                .navigationTitle("Einstellungen")
+        }
+    }
 }
 
 #Preview {
