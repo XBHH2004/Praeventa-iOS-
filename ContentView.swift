@@ -12,31 +12,6 @@ struct ContentView: View {
     }
 }
 
-struct HomeView: View {
-    var body: some View {
-        NavigationStack {
-            VStack(spacing: 24) {
-                Spacer()
-                Image(systemName: "cross.case.fill")
-                    .font(.system(size: 72))
-                    .foregroundStyle(.red)
-                Text("PRAEVENTA")
-                    .font(.largeTitle)
-                    .fontWeight(.bold)
-                Text("Wissen. Handeln. Helfen.")
-                    .foregroundStyle(.secondary)
-                Spacer()
-                Text("Startseite")
-                    .font(.title2)
-                    .fontWeight(.semibold)
-                Spacer()
-            }
-            .padding()
-            .navigationTitle("Start")
-        }
-    }
-}
-
 struct EmergencyView: View {
     let emergencies = [
         ("Bewusstlosigkeit", "person.fill.questionmark", Color.red),
