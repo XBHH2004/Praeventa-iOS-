@@ -14,6 +14,7 @@
 		431A99B52FFC61E3001FBF93 /* app.html in Resources */ = {isa = PBXBuildFile; fileRef = 431A99AC2FFC6058001FBF93 /* app.html */; };
 		431A99B72FFC6A7F001FBF93 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 431A99B62FFC6A70001FBF93 /* HomeView.swift */; };
 		431A99B92FFC6B17001FBF93 /* HomeCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 431A99B82FFC6B13001FBF93 /* HomeCard.swift */; };
+		431A99BB2FFC6C64001FBF93 /* EmergencyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 431A99BA2FFC6C5F001FBF93 /* EmergencyView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		431A99B02FFC6058001FBF93 /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
 		431A99B62FFC6A70001FBF93 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		431A99B82FFC6B13001FBF93 /* HomeCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCard.swift; sourceTree = "<group>"; };
+		431A99BA2FFC6C5F001FBF93 /* EmergencyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmergencyView.swift; sourceTree = "<group>"; };
 		4384B36E2FF1E56E00B04CD7 /* Erste Hilfe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Erste Hilfe.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -41,6 +43,7 @@
 		4384B3652FF1E56E00B04CD7 = {
 			isa = PBXGroup;
 			children = (
+				431A99BA2FFC6C5F001FBF93 /* EmergencyView.swift */,
 				431A99B82FFC6B13001FBF93 /* HomeCard.swift */,
 				431A99B62FFC6A70001FBF93 /* HomeView.swift */,
 				431A99AC2FFC6058001FBF93 /* app.html */,
@@ -135,6 +138,7 @@
 			files = (
 				431A99B32FFC61A6001FBF93 /* WebView.swift in Sources */,
 				431A99B72FFC6A7F001FBF93 /* HomeView.swift in Sources */,
+				431A99BB2FFC6C64001FBF93 /* EmergencyView.swift in Sources */,
 				431A99B22FFC619F001FBF93 /* Erste_HilfeApp.swift in Sources */,
 				431A99B12FFC6174001FBF93 /* ContentView.swift in Sources */,
 				431A99B92FFC6B17001FBF93 /* HomeCard.swift in Sources */,
