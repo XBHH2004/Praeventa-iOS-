@@ -1,6 +1,9 @@
 import SwiftUI
 
 struct HomeView: View {
+
+    @Binding var selectedTab: Int
+
     var body: some View {
         NavigationStack {
             ScrollView {
@@ -26,7 +29,7 @@ struct HomeView: View {
                             systemImage: "exclamationmark.triangle.fill",
                             color: .red
                         ) {
-                            // später: direkt zum Notfall-Assistenten
+                            selectedTab = 1
                         }
                     }
 
@@ -35,25 +38,10 @@ struct HomeView: View {
                             .font(.headline)
                             .foregroundStyle(.secondary)
 
-                        HomeCard(
-                            title: "❤️ Reanimation",
-                            subtitle: "Herzdruckmassage starten"
-                        )
-
-                        HomeCard(
-                            title: "🧠 Schlaganfall",
-                            subtitle: "FAST-Test und Soforthilfe"
-                        )
-
-                        HomeCard(
-                            title: "💔 Herzinfarkt",
-                            subtitle: "Warnzeichen erkennen"
-                        )
-
-                        HomeCard(
-                            title: "🫁 Atemnot",
-                            subtitle: "Richtig handeln"
-                        )
+                        HomeCard(title: "❤️ Reanimation", subtitle: "Herzdruckmassage starten")
+                        HomeCard(title: "🧠 Schlaganfall", subtitle: "FAST-Test und Soforthilfe")
+                        HomeCard(title: "💔 Herzinfarkt", subtitle: "Warnzeichen erkennen")
+                        HomeCard(title: "🫁 Atemnot", subtitle: "Richtig handeln")
                     }
 
                     VStack(alignment: .leading, spacing: 14) {
@@ -61,15 +49,8 @@ struct HomeView: View {
                             .font(.headline)
                             .foregroundStyle(.secondary)
 
-                        HomeCard(
-                            title: "📚 Medizinisches Wissen",
-                            subtitle: "Erste Hilfe verständlich erklärt"
-                        )
-
-                        HomeCard(
-                            title: "⭐ Favoriten",
-                            subtitle: "Wichtige Inhalte schnell öffnen"
-                        )
+                        HomeCard(title: "📚 Medizinisches Wissen", subtitle: "Erste Hilfe verständlich erklärt")
+                        HomeCard(title: "⭐ Favoriten", subtitle: "Wichtige Inhalte schnell öffnen")
                     }
                 }
                 .padding()
@@ -80,5 +61,5 @@ struct HomeView: View {
 }
 
 #Preview {
-    HomeView()
+    HomeView(selectedTab: .constant(0))
 }

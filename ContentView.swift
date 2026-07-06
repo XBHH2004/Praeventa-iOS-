@@ -1,42 +1,44 @@
 import SwiftUI
 
 struct ContentView: View {
-    var body: some View {
-        TabView {
-            HomeView().tabItem { Label("Start", systemImage: "house.fill") }
-            EmergencyView().tabItem { Label("Notfall", systemImage: "cross.case.fill") }
-            KnowledgeView().tabItem { Label("Wissen", systemImage: "book.fill") }
-            FavoritesView().tabItem { Label("Favoriten", systemImage: "star.fill") }
-            SettingsView().tabItem { Label("Einstellungen", systemImage: "gearshape.fill") }
-        }
-    }
-}
 
+    @State private var selectedTab = 0
 
-struct KnowledgeView: View {
     var body: some View {
-        NavigationStack {
-            Text("Medizinisches Wissen")
-                .navigationTitle("Wissen")
-        }
-    }
-}
 
-struct FavoritesView: View {
-    var body: some View {
-        NavigationStack {
-            Text("Noch keine Favoriten")
-                .navigationTitle("Favoriten")
-        }
-    }
-}
+        TabView(selection: $selectedTab) {
 
-struct SettingsView: View {
-    var body: some View {
-        NavigationStack {
-            Text("Einstellungen")
-                .navigationTitle("Einstellungen")
+            HomeView(selectedTab: $selectedTab)
+                .tabItem {
+                    Label("Start", systemImage: "house.fill")
+                }
+                .tag(0)
+
+            EmergencyView()
+                .tabItem {
+                    Label("Notfall", systemImage: "cross.case.fill")
+                }
+                .tag(1)
+
+            KnowledgeView()
+                .tabItem {
+                    Label("Wissen", systemImage: "book.fill")
+                }
+                .tag(2)
+
+            FavoritesView()
+                .tabItem {
+                    Label("Favoriten", systemImage: "star.fill")
+                }
+                .tag(3)
+
+            SettingsView()
+                .tabItem {
+                    Label("Einstellungen", systemImage: "gearshape.fill")
+                }
+                .tag(4)
         }
+        .tint(.red)
     }
 }
 
