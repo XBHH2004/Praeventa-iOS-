@@ -17,7 +17,11 @@ struct EmergencyView: View {
                 VStack(spacing: 14) {
                     ForEach(emergencies, id: \.0) { item in
                         NavigationLink {
-                            EmergencyDetailView(title: item.0)
+                            if item.0 == "Bewusstlosigkeit" {
+                                UnconsciousFlowView()
+                            } else {
+                                EmergencyDetailView(title: item.0)
+                            }
                         } label: {
                             HStack {
                                 Image(systemName: item.1)

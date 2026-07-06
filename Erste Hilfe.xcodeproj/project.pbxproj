@@ -15,6 +15,11 @@
 		431A99B72FFC6A7F001FBF93 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 431A99B62FFC6A70001FBF93 /* HomeView.swift */; };
 		431A99B92FFC6B17001FBF93 /* HomeCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 431A99B82FFC6B13001FBF93 /* HomeCard.swift */; };
 		431A99BB2FFC6C64001FBF93 /* EmergencyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 431A99BA2FFC6C5F001FBF93 /* EmergencyView.swift */; };
+		431A99BD2FFC6DBF001FBF93 /* UnconsciousFlowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 431A99BC2FFC6DBB001FBF93 /* UnconsciousFlowView.swift */; };
+		431A99BF2FFC6EB9001FBF93 /* PrimaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 431A99BE2FFC6EB6001FBF93 /* PrimaryButton.swift */; };
+		431A99C12FFC6F7F001FBF93 /* WarningCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 431A99C02FFC6F7C001FBF93 /* WarningCard.swift */; };
+		431A99C32FFC6FC4001FBF93 /* EmergencyHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 431A99C22FFC6FC1001FBF93 /* EmergencyHeader.swift */; };
+		431A99C52FFC70E3001FBF93 /* InfoCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 431A99C42FFC70E1001FBF93 /* InfoCard.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +31,11 @@
 		431A99B62FFC6A70001FBF93 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		431A99B82FFC6B13001FBF93 /* HomeCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCard.swift; sourceTree = "<group>"; };
 		431A99BA2FFC6C5F001FBF93 /* EmergencyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmergencyView.swift; sourceTree = "<group>"; };
+		431A99BC2FFC6DBB001FBF93 /* UnconsciousFlowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnconsciousFlowView.swift; sourceTree = "<group>"; };
+		431A99BE2FFC6EB6001FBF93 /* PrimaryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryButton.swift; sourceTree = "<group>"; };
+		431A99C02FFC6F7C001FBF93 /* WarningCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WarningCard.swift; sourceTree = "<group>"; };
+		431A99C22FFC6FC1001FBF93 /* EmergencyHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmergencyHeader.swift; sourceTree = "<group>"; };
+		431A99C42FFC70E1001FBF93 /* InfoCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoCard.swift; sourceTree = "<group>"; };
 		4384B36E2FF1E56E00B04CD7 /* Erste Hilfe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Erste Hilfe.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -43,6 +53,11 @@
 		4384B3652FF1E56E00B04CD7 = {
 			isa = PBXGroup;
 			children = (
+				431A99C42FFC70E1001FBF93 /* InfoCard.swift */,
+				431A99C22FFC6FC1001FBF93 /* EmergencyHeader.swift */,
+				431A99C02FFC6F7C001FBF93 /* WarningCard.swift */,
+				431A99BE2FFC6EB6001FBF93 /* PrimaryButton.swift */,
+				431A99BC2FFC6DBB001FBF93 /* UnconsciousFlowView.swift */,
 				431A99BA2FFC6C5F001FBF93 /* EmergencyView.swift */,
 				431A99B82FFC6B13001FBF93 /* HomeCard.swift */,
 				431A99B62FFC6A70001FBF93 /* HomeView.swift */,
@@ -138,10 +153,15 @@
 			files = (
 				431A99B32FFC61A6001FBF93 /* WebView.swift in Sources */,
 				431A99B72FFC6A7F001FBF93 /* HomeView.swift in Sources */,
+				431A99BD2FFC6DBF001FBF93 /* UnconsciousFlowView.swift in Sources */,
 				431A99BB2FFC6C64001FBF93 /* EmergencyView.swift in Sources */,
+				431A99C32FFC6FC4001FBF93 /* EmergencyHeader.swift in Sources */,
 				431A99B22FFC619F001FBF93 /* Erste_HilfeApp.swift in Sources */,
+				431A99C52FFC70E3001FBF93 /* InfoCard.swift in Sources */,
 				431A99B12FFC6174001FBF93 /* ContentView.swift in Sources */,
+				431A99BF2FFC6EB9001FBF93 /* PrimaryButton.swift in Sources */,
 				431A99B92FFC6B17001FBF93 /* HomeCard.swift in Sources */,
+				431A99C12FFC6F7F001FBF93 /* WarningCard.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
