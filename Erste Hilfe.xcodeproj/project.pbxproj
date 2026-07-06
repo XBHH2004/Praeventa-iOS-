@@ -6,17 +6,22 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		431A99B12FFC6174001FBF93 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 431A99AE2FFC6058001FBF93 /* ContentView.swift */; };
+		431A99B22FFC619F001FBF93 /* Erste_HilfeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 431A99AF2FFC6058001FBF93 /* Erste_HilfeApp.swift */; };
+		431A99B32FFC61A6001FBF93 /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 431A99B02FFC6058001FBF93 /* WebView.swift */; };
+		431A99B42FFC61AD001FBF93 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 431A99AD2FFC6058001FBF93 /* Assets.xcassets */; };
+		431A99B52FFC61E3001FBF93 /* app.html in Resources */ = {isa = PBXBuildFile; fileRef = 431A99AC2FFC6058001FBF93 /* app.html */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
+		431A99AC2FFC6058001FBF93 /* app.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = app.html; sourceTree = "<group>"; };
+		431A99AD2FFC6058001FBF93 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		431A99AE2FFC6058001FBF93 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		431A99AF2FFC6058001FBF93 /* Erste_HilfeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Erste_HilfeApp.swift; sourceTree = "<group>"; };
+		431A99B02FFC6058001FBF93 /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
 		4384B36E2FF1E56E00B04CD7 /* Erste Hilfe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Erste Hilfe.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
-
-/* Begin PBXFileSystemSynchronizedRootGroup section */
-		4384B3702FF1E56E00B04CD7 /* Erste Hilfe */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = "Erste Hilfe";
-			sourceTree = "<group>";
-		};
-/* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		4384B36B2FF1E56E00B04CD7 /* Frameworks */ = {
@@ -32,7 +37,11 @@
 		4384B3652FF1E56E00B04CD7 = {
 			isa = PBXGroup;
 			children = (
-				4384B3702FF1E56E00B04CD7 /* Erste Hilfe */,
+				431A99AC2FFC6058001FBF93 /* app.html */,
+				431A99AD2FFC6058001FBF93 /* Assets.xcassets */,
+				431A99AE2FFC6058001FBF93 /* ContentView.swift */,
+				431A99AF2FFC6058001FBF93 /* Erste_HilfeApp.swift */,
+				431A99B02FFC6058001FBF93 /* WebView.swift */,
 				4384B36F2FF1E56E00B04CD7 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -59,9 +68,6 @@
 			buildRules = (
 			);
 			dependencies = (
-			);
-			fileSystemSynchronizedGroups = (
-				4384B3702FF1E56E00B04CD7 /* Erste Hilfe */,
 			);
 			name = "Erste Hilfe";
 			packageProductDependencies = (
@@ -109,6 +115,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				431A99B52FFC61E3001FBF93 /* app.html in Resources */,
+				431A99B42FFC61AD001FBF93 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -119,6 +127,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				431A99B32FFC61A6001FBF93 /* WebView.swift in Sources */,
+				431A99B22FFC619F001FBF93 /* Erste_HilfeApp.swift in Sources */,
+				431A99B12FFC6174001FBF93 /* ContentView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -256,17 +267,18 @@
 				DEVELOPMENT_TEAM = H82657DD25;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = PRAEVENTA;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.education";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "de.PRAEVENTA.Erste-Hilfe";
+				PRODUCT_BUNDLE_IDENTIFIER = de.praeventa.app;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
@@ -288,17 +300,18 @@
 				DEVELOPMENT_TEAM = H82657DD25;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = PRAEVENTA;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.education";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "de.PRAEVENTA.Erste-Hilfe";
+				PRODUCT_BUNDLE_IDENTIFIER = de.praeventa.app;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
