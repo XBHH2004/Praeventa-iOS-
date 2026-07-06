@@ -24,12 +24,14 @@ struct HomeView: View {
                             .font(.headline)
                             .foregroundStyle(.secondary)
 
-                        PrimaryButton(
-                            title: "Ich habe einen Notfall",
-                            systemImage: "exclamationmark.triangle.fill",
-                            color: .red
-                        ) {
-                            selectedTab = 1
+                        NavigationLink {
+                            PanicModeView()
+                        } label: {
+                            PrimaryButton(
+                                title: "Ich habe einen Notfall",
+                                systemImage: "exclamationmark.triangle.fill",
+                                color: .red
+                            ) { }
                         }
                     }
 

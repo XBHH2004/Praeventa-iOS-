@@ -23,6 +23,7 @@
 		431A99C72FFC741E001FBF93 /* KnowledgeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 431A99C62FFC741C001FBF93 /* KnowledgeView.swift */; };
 		431A99C92FFC742F001FBF93 /* FavoritesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 431A99C82FFC742C001FBF93 /* FavoritesView.swift */; };
 		431A99CB2FFC743E001FBF93 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 431A99CA2FFC743B001FBF93 /* SettingsView.swift */; };
+		431A99CD2FFC761A001FBF93 /* PanicModeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 431A99CC2FFC7616001FBF93 /* PanicModeView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,7 @@
 		431A99C62FFC741C001FBF93 /* KnowledgeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KnowledgeView.swift; sourceTree = "<group>"; };
 		431A99C82FFC742C001FBF93 /* FavoritesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesView.swift; sourceTree = "<group>"; };
 		431A99CA2FFC743B001FBF93 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		431A99CC2FFC7616001FBF93 /* PanicModeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PanicModeView.swift; sourceTree = "<group>"; };
 		4384B36E2FF1E56E00B04CD7 /* Erste Hilfe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Erste Hilfe.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -59,6 +61,7 @@
 		4384B3652FF1E56E00B04CD7 = {
 			isa = PBXGroup;
 			children = (
+				431A99CC2FFC7616001FBF93 /* PanicModeView.swift */,
 				431A99CA2FFC743B001FBF93 /* SettingsView.swift */,
 				431A99C82FFC742C001FBF93 /* FavoritesView.swift */,
 				431A99C62FFC741C001FBF93 /* KnowledgeView.swift */,
@@ -171,6 +174,7 @@
 				431A99B22FFC619F001FBF93 /* Erste_HilfeApp.swift in Sources */,
 				431A99C52FFC70E3001FBF93 /* InfoCard.swift in Sources */,
 				431A99B12FFC6174001FBF93 /* ContentView.swift in Sources */,
+				431A99CD2FFC761A001FBF93 /* PanicModeView.swift in Sources */,
 				431A99BF2FFC6EB9001FBF93 /* PrimaryButton.swift in Sources */,
 				431A99B92FFC6B17001FBF93 /* HomeCard.swift in Sources */,
 				431A99C12FFC6F7F001FBF93 /* WarningCard.swift in Sources */,
