@@ -27,12 +27,19 @@ struct HomeView: View {
                         NavigationLink {
                             PanicModeView()
                         } label: {
-                            PrimaryButton(
-                                title: "Ich habe einen Notfall",
-                                systemImage: "exclamationmark.triangle.fill",
-                                color: .red
-                            ) { }
+                            HStack {
+                                Image(systemName: "exclamationmark.triangle.fill")
+                                Text("Ich habe einen Notfall")
+                                    .fontWeight(.semibold)
+                            }
+                            .font(.headline)
+                            .foregroundStyle(.white)
+                            .frame(maxWidth: .infinity)
+                            .frame(height: 58)
+                            .background(Color.red)
+                            .clipShape(RoundedRectangle(cornerRadius: 18))
                         }
+                        .buttonStyle(.plain)
                     }
 
                     VStack(alignment: .leading, spacing: 14) {

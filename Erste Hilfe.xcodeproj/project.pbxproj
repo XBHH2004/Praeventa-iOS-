@@ -24,6 +24,10 @@
 		431A99C92FFC742F001FBF93 /* FavoritesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 431A99C82FFC742C001FBF93 /* FavoritesView.swift */; };
 		431A99CB2FFC743E001FBF93 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 431A99CA2FFC743B001FBF93 /* SettingsView.swift */; };
 		431A99CD2FFC761A001FBF93 /* PanicModeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 431A99CC2FFC7616001FBF93 /* PanicModeView.swift */; };
+		431A99CF2FFC775A001FBF93 /* EmergencyDecisionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 431A99CE2FFC7757001FBF93 /* EmergencyDecisionView.swift */; };
+		431A99D12FFC77E7001FBF93 /* BreathingDecisionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 431A99D02FFC77E3001FBF93 /* BreathingDecisionView.swift */; };
+		431A99D32FFC77FE001FBF93 /* CPRView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 431A99D22FFC77FB001FBF93 /* CPRView.swift */; };
+		431A99D52FFC7C8D001FBF93 /* ROADMAP.md in Resources */ = {isa = PBXBuildFile; fileRef = 431A99D42FFC7C89001FBF93 /* ROADMAP.md */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +48,10 @@
 		431A99C82FFC742C001FBF93 /* FavoritesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesView.swift; sourceTree = "<group>"; };
 		431A99CA2FFC743B001FBF93 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		431A99CC2FFC7616001FBF93 /* PanicModeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PanicModeView.swift; sourceTree = "<group>"; };
+		431A99CE2FFC7757001FBF93 /* EmergencyDecisionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmergencyDecisionView.swift; sourceTree = "<group>"; };
+		431A99D02FFC77E3001FBF93 /* BreathingDecisionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreathingDecisionView.swift; sourceTree = "<group>"; };
+		431A99D22FFC77FB001FBF93 /* CPRView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CPRView.swift; sourceTree = "<group>"; };
+		431A99D42FFC7C89001FBF93 /* ROADMAP.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = ROADMAP.md; sourceTree = "<group>"; };
 		4384B36E2FF1E56E00B04CD7 /* Erste Hilfe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Erste Hilfe.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -61,6 +69,10 @@
 		4384B3652FF1E56E00B04CD7 = {
 			isa = PBXGroup;
 			children = (
+				431A99D42FFC7C89001FBF93 /* ROADMAP.md */,
+				431A99D22FFC77FB001FBF93 /* CPRView.swift */,
+				431A99D02FFC77E3001FBF93 /* BreathingDecisionView.swift */,
+				431A99CE2FFC7757001FBF93 /* EmergencyDecisionView.swift */,
 				431A99CC2FFC7616001FBF93 /* PanicModeView.swift */,
 				431A99CA2FFC743B001FBF93 /* SettingsView.swift */,
 				431A99C82FFC742C001FBF93 /* FavoritesView.swift */,
@@ -152,6 +164,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				431A99B52FFC61E3001FBF93 /* app.html in Resources */,
+				431A99D52FFC7C8D001FBF93 /* ROADMAP.md in Resources */,
 				431A99B42FFC61AD001FBF93 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -169,14 +182,17 @@
 				431A99BD2FFC6DBF001FBF93 /* UnconsciousFlowView.swift in Sources */,
 				431A99BB2FFC6C64001FBF93 /* EmergencyView.swift in Sources */,
 				431A99C32FFC6FC4001FBF93 /* EmergencyHeader.swift in Sources */,
+				431A99D32FFC77FE001FBF93 /* CPRView.swift in Sources */,
 				431A99C72FFC741E001FBF93 /* KnowledgeView.swift in Sources */,
 				431A99CB2FFC743E001FBF93 /* SettingsView.swift in Sources */,
 				431A99B22FFC619F001FBF93 /* Erste_HilfeApp.swift in Sources */,
 				431A99C52FFC70E3001FBF93 /* InfoCard.swift in Sources */,
 				431A99B12FFC6174001FBF93 /* ContentView.swift in Sources */,
 				431A99CD2FFC761A001FBF93 /* PanicModeView.swift in Sources */,
+				431A99D12FFC77E7001FBF93 /* BreathingDecisionView.swift in Sources */,
 				431A99BF2FFC6EB9001FBF93 /* PrimaryButton.swift in Sources */,
 				431A99B92FFC6B17001FBF93 /* HomeCard.swift in Sources */,
+				431A99CF2FFC775A001FBF93 /* EmergencyDecisionView.swift in Sources */,
 				431A99C12FFC6F7F001FBF93 /* WarningCard.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
