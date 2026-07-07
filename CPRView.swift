@@ -5,12 +5,14 @@ struct CPRView: View {
 
     @State private var isRunning = false
     @State private var seconds = 0
+    @State private var beat = false
 
     let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
+    let beatTimer = Timer.publish(every: 60.0 / 110.0, on: .main, in: .common).autoconnect()
 
     var body: some View {
         ScrollView {
-            VStack(spacing: 20) {
+            VStack(spacing: 22) {
 
                 EmergencyHeader(
                     title: "❤️ Reanimation",
@@ -19,18 +21,30 @@ struct CPRView: View {
 
                 WarningCard(
                     title: "Sofort handeln",
-                    message: "Rufen Sie 112 und beginnen Sie sofort mit der Herzdruckmassage."
+                    message: "112 rufen und sofort mit der Herzdruckmassage beginnen."
                 )
 
                 InfoCard(
-                    title: "Frequenz",
-                    message: "Drücken Sie 100–120 mal pro Minute in der Mitte des Brustkorbs."
+                    title: "Takt",
+                    message: "Drücken Sie fest und schnell: 100–120 mal pro Minute. Dieser Takt läuft mit 110/min."
                 )
 
+                ZStack {
+                    Circle()
+                        .fill(Color.red.opacity(beat ? 0.28 : 0.12))
+                        .frame(width: beat ? 220 : 180, height: beat ? 220 : 180)
+
+                    Text("DRÜCKEN")
+                        .font(.largeTitle)
+                        .fontWeight(.bold)
+                        .foregroundStyle(.red)
+                }
+                .animation(.easeInOut(duration: 0.18), value: beat)
+                .padding(.vertical)
+
                 Text(timeString)
-                    .font(.system(size: 64, weight: .bold, design: .rounded))
+                    .font(.system(size: 60, weight: .bold, design: .rounded))
                     .monospacedDigit()
-                    .padding(.top)
 
                 PrimaryButton(
                     title: isRunning ? "Pause" : "Reanimation starten",
@@ -53,9 +67,9 @@ struct CPRView: View {
                 Button("Zurücksetzen") {
                     isRunning = false
                     seconds = 0
+                    beat = false
                 }
                 .foregroundStyle(.secondary)
-                .padding(.top, 6)
             }
             .padding()
         }
@@ -64,6 +78,11 @@ struct CPRView: View {
         .onReceive(timer) { _ in
             if isRunning {
                 seconds += 1
+            }
+        }
+        .onReceive(beatTimer) { _ in
+            if isRunning {
+                beat.toggle()
             }
         }
     }
