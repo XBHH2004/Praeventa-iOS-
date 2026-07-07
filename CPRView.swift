@@ -1,57 +1,87 @@
 import SwiftUI
 import Combine
 
+enum CPRPhase {
+    case ready
+    case compressions
+    case breathing
+    case paused
+}
+
 struct CPRView: View {
 
-    @State private var isRunning = false
+    @State private var phase: CPRPhase = .ready
     @State private var seconds = 0
     @State private var beat = false
+    @State private var compressions = 0
+    @State private var cycle = 1
+    @State private var breathingCountdown = 5
 
     let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     let beatTimer = Timer.publish(every: 60.0 / 110.0, on: .main, in: .common).autoconnect()
+    let breathingTimer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
 
     var body: some View {
-        ScrollView {
-            VStack(spacing: 22) {
+        VStack(spacing: 14) {
 
-                EmergencyHeader(
-                    title: "❤️ Reanimation",
-                    subtitle: "Keine normale Atmung."
-                )
+            Text("❤️ Reanimation")
+                .font(.largeTitle)
+                .fontWeight(.bold)
 
-                WarningCard(
-                    title: "Sofort handeln",
-                    message: "112 rufen und sofort mit der Herzdruckmassage beginnen."
-                )
+            Text("Keine normale Atmung")
+                .foregroundStyle(.secondary)
 
-                InfoCard(
-                    title: "Takt",
-                    message: "Drücken Sie fest und schnell: 100–120 mal pro Minute. Dieser Takt läuft mit 110/min."
-                )
-
-                ZStack {
-                    Circle()
-                        .fill(Color.red.opacity(beat ? 0.28 : 0.12))
-                        .frame(width: beat ? 220 : 180, height: beat ? 220 : 180)
-
-                    Text("DRÜCKEN")
-                        .font(.largeTitle)
-                        .fontWeight(.bold)
-                        .foregroundStyle(.red)
+            HStack {
+                VStack {
+                    Text(timeString)
+                        .font(.system(size: 34, weight: .bold, design: .rounded))
+                        .monospacedDigit()
+                    Text("Zeit")
+                        .font(.caption)
+                        .foregroundStyle(.secondary)
                 }
-                .animation(.easeInOut(duration: 0.18), value: beat)
-                .padding(.vertical)
 
-                Text(timeString)
-                    .font(.system(size: 60, weight: .bold, design: .rounded))
-                    .monospacedDigit()
+                Spacer()
 
+                VStack {
+                    Text("\(cycle)")
+                        .font(.system(size: 34, weight: .bold, design: .rounded))
+                    Text("Zyklus")
+                        .font(.caption)
+                        .foregroundStyle(.secondary)
+                }
+            }
+            .padding()
+            .background(.thinMaterial)
+            .clipShape(RoundedRectangle(cornerRadius: 20))
+
+            if phase == .breathing {
+                CPRBreathingView(countdown: breathingCountdown) {
+                    startCompressions()
+                }
+                .frame(height: 300)
+            } else {
+                VStack(spacing: 8) {
+                    CPRPulseView(beat: beat)
+
+                    CPRCounter(compressions: compressions)
+                }
+                .frame(height: 350)
+            }
+
+            Spacer(minLength: 4)
+
+            VStack(spacing: 10) {
                 PrimaryButton(
-                    title: isRunning ? "Pause" : "Reanimation starten",
-                    systemImage: isRunning ? "pause.fill" : "heart.fill",
-                    color: isRunning ? .orange : .red
+                    title: phase == .compressions ? "Pause" : "Reanimation starten",
+                    systemImage: phase == .compressions ? "pause.fill" : "heart.fill",
+                    color: phase == .compressions ? .orange : .red
                 ) {
-                    isRunning.toggle()
+                    if phase == .compressions {
+                        phase = .paused
+                    } else {
+                        startCompressions()
+                    }
                 }
 
                 PrimaryButton(
@@ -65,26 +95,57 @@ struct CPRView: View {
                 }
 
                 Button("Zurücksetzen") {
-                    isRunning = false
+                    phase = .ready
                     seconds = 0
                     beat = false
+                    compressions = 0
+                    cycle = 1
+                    breathingCountdown = 5
                 }
+                .font(.footnote)
                 .foregroundStyle(.secondary)
             }
-            .padding()
         }
+        .padding()
         .navigationTitle("Reanimation")
         .navigationBarTitleDisplayMode(.inline)
         .onReceive(timer) { _ in
-            if isRunning {
+            if phase == .compressions || phase == .breathing {
                 seconds += 1
             }
         }
         .onReceive(beatTimer) { _ in
-            if isRunning {
-                beat.toggle()
+            guard phase == .compressions else { return }
+
+            beat.toggle()
+            compressions += 1
+
+            if compressions >= 30 {
+                phase = .breathing
+                beat = false
+                breathingCountdown = 5
             }
         }
+        .onReceive(breathingTimer) { _ in
+            guard phase == .breathing else { return }
+
+            if breathingCountdown > 1 {
+                breathingCountdown -= 1
+            } else {
+                startCompressions()
+            }
+        }
+    }
+
+    private func startCompressions() {
+        if phase == .breathing {
+            cycle += 1
+        }
+
+        phase = .compressions
+        compressions = 0
+        breathingCountdown = 5
+        beat = false
     }
 
     private var timeString: String {
