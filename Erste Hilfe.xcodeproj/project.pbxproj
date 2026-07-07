@@ -26,11 +26,11 @@
 		431A99CD2FFC761A001FBF93 /* PanicModeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 431A99CC2FFC7616001FBF93 /* PanicModeView.swift */; };
 		431A99CF2FFC775A001FBF93 /* EmergencyDecisionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 431A99CE2FFC7757001FBF93 /* EmergencyDecisionView.swift */; };
 		431A99D12FFC77E7001FBF93 /* BreathingDecisionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 431A99D02FFC77E3001FBF93 /* BreathingDecisionView.swift */; };
-		431A99D32FFC77FE001FBF93 /* CPRView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 431A99D22FFC77FB001FBF93 /* CPRView.swift */; };
 		431A99D52FFC7C8D001FBF93 /* ROADMAP.md in Resources */ = {isa = PBXBuildFile; fileRef = 431A99D42FFC7C89001FBF93 /* ROADMAP.md */; };
 		431A99D72FFC7F38001FBF93 /* CPRCounter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 431A99D62FFC7F35001FBF93 /* CPRCounter.swift */; };
 		431A99D92FFC7F8F001FBF93 /* CPRPulseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 431A99D82FFC7F8C001FBF93 /* CPRPulseView.swift */; };
 		431A99DB2FFC7FC4001FBF93 /* CPRBreathingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 431A99DA2FFC7FBE001FBF93 /* CPRBreathingView.swift */; };
+		431A99DE2FFC8D9F001FBF93 /* CPRView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 431A99DD2FFC8D5D001FBF93 /* CPRView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -53,11 +53,11 @@
 		431A99CC2FFC7616001FBF93 /* PanicModeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PanicModeView.swift; sourceTree = "<group>"; };
 		431A99CE2FFC7757001FBF93 /* EmergencyDecisionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmergencyDecisionView.swift; sourceTree = "<group>"; };
 		431A99D02FFC77E3001FBF93 /* BreathingDecisionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreathingDecisionView.swift; sourceTree = "<group>"; };
-		431A99D22FFC77FB001FBF93 /* CPRView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CPRView.swift; sourceTree = "<group>"; };
 		431A99D42FFC7C89001FBF93 /* ROADMAP.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = ROADMAP.md; sourceTree = "<group>"; };
 		431A99D62FFC7F35001FBF93 /* CPRCounter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CPRCounter.swift; sourceTree = "<group>"; };
 		431A99D82FFC7F8C001FBF93 /* CPRPulseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CPRPulseView.swift; sourceTree = "<group>"; };
 		431A99DA2FFC7FBE001FBF93 /* CPRBreathingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CPRBreathingView.swift; sourceTree = "<group>"; };
+		431A99DD2FFC8D5D001FBF93 /* CPRView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CPRView.swift; sourceTree = "<group>"; };
 		4384B36E2FF1E56E00B04CD7 /* Erste Hilfe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Erste Hilfe.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -75,11 +75,11 @@
 		4384B3652FF1E56E00B04CD7 = {
 			isa = PBXGroup;
 			children = (
+				431A99DD2FFC8D5D001FBF93 /* CPRView.swift */,
 				431A99DA2FFC7FBE001FBF93 /* CPRBreathingView.swift */,
 				431A99D82FFC7F8C001FBF93 /* CPRPulseView.swift */,
 				431A99D62FFC7F35001FBF93 /* CPRCounter.swift */,
 				431A99D42FFC7C89001FBF93 /* ROADMAP.md */,
-				431A99D22FFC77FB001FBF93 /* CPRView.swift */,
 				431A99D02FFC77E3001FBF93 /* BreathingDecisionView.swift */,
 				431A99CE2FFC7757001FBF93 /* EmergencyDecisionView.swift */,
 				431A99CC2FFC7616001FBF93 /* PanicModeView.swift */,
@@ -192,12 +192,12 @@
 				431A99BD2FFC6DBF001FBF93 /* UnconsciousFlowView.swift in Sources */,
 				431A99BB2FFC6C64001FBF93 /* EmergencyView.swift in Sources */,
 				431A99C32FFC6FC4001FBF93 /* EmergencyHeader.swift in Sources */,
-				431A99D32FFC77FE001FBF93 /* CPRView.swift in Sources */,
 				431A99C72FFC741E001FBF93 /* KnowledgeView.swift in Sources */,
 				431A99CB2FFC743E001FBF93 /* SettingsView.swift in Sources */,
 				431A99B22FFC619F001FBF93 /* Erste_HilfeApp.swift in Sources */,
 				431A99C52FFC70E3001FBF93 /* InfoCard.swift in Sources */,
 				431A99B12FFC6174001FBF93 /* ContentView.swift in Sources */,
+				431A99DE2FFC8D9F001FBF93 /* CPRView.swift in Sources */,
 				431A99D72FFC7F38001FBF93 /* CPRCounter.swift in Sources */,
 				431A99CD2FFC761A001FBF93 /* PanicModeView.swift in Sources */,
 				431A99D12FFC77E7001FBF93 /* BreathingDecisionView.swift in Sources */,

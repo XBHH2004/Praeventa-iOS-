@@ -1,11 +1,24 @@
 import SwiftUI
 import Combine
+import UIKit
 
 enum CPRPhase {
     case ready
     case compressions
     case breathing
     case paused
+}
+
+enum CPRAlert: Identifiable {
+    case reset
+    case call
+
+    var id: String {
+        switch self {
+        case .reset: return "reset"
+        case .call: return "call"
+        }
+    }
 }
 
 struct CPRView: View {
@@ -16,10 +29,13 @@ struct CPRView: View {
     @State private var compressions = 0
     @State private var cycle = 1
     @State private var breathingCountdown = 5
+    @State private var activeAlert: CPRAlert?
 
     let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     let beatTimer = Timer.publish(every: 60.0 / 110.0, on: .main, in: .common).autoconnect()
     let breathingTimer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
+
+    private let feedback = UIImpactFeedbackGenerator(style: .light)
 
     var body: some View {
         VStack(spacing: 14) {
@@ -36,6 +52,7 @@ struct CPRView: View {
                     Text(timeString)
                         .font(.system(size: 34, weight: .bold, design: .rounded))
                         .monospacedDigit()
+
                     Text("Zeit")
                         .font(.caption)
                         .foregroundStyle(.secondary)
@@ -46,6 +63,7 @@ struct CPRView: View {
                 VStack {
                     Text("\(cycle)")
                         .font(.system(size: 34, weight: .bold, design: .rounded))
+
                     Text("Zyklus")
                         .font(.caption)
                         .foregroundStyle(.secondary)
@@ -63,7 +81,6 @@ struct CPRView: View {
             } else {
                 VStack(spacing: 8) {
                     CPRPulseView(beat: beat)
-
                     CPRCounter(compressions: compressions)
                 }
                 .frame(height: 350)
@@ -89,26 +106,53 @@ struct CPRView: View {
                     systemImage: "phone.fill",
                     color: .red
                 ) {
-                    if let url = URL(string: "tel://112") {
-                        UIApplication.shared.open(url)
-                    }
+                    activeAlert = .call
                 }
-
-                Button("Zurücksetzen") {
-                    phase = .ready
-                    seconds = 0
-                    beat = false
-                    compressions = 0
-                    cycle = 1
-                    breathingCountdown = 5
-                }
-                .font(.footnote)
-                .foregroundStyle(.secondary)
             }
         }
         .padding()
         .navigationTitle("Reanimation")
         .navigationBarTitleDisplayMode(.inline)
+        .toolbar {
+            ToolbarItem(placement: .topBarTrailing) {
+                Button {
+                    activeAlert = .reset
+                } label: {
+                    Image(systemName: "arrow.counterclockwise")
+                }
+            }
+        }
+        .alert(item: $activeAlert) { alert in
+            switch alert {
+            case .reset:
+                return Alert(
+                    title: Text("Reanimation beenden?"),
+                    message: Text("Zeit, Zyklus und aktueller Fortschritt werden zurückgesetzt."),
+                    primaryButton: .destructive(Text("Beenden")) {
+                        UIApplication.shared.isIdleTimerDisabled = false
+                        phase = .ready
+                        seconds = 0
+                        beat = false
+                        compressions = 0
+                        cycle = 1
+                        breathingCountdown = 5
+                    },
+                    secondaryButton: .cancel(Text("Abbrechen"))
+                )
+
+            case .call:
+                return Alert(
+                    title: Text("Notruf 112 anrufen?"),
+                    message: Text("Nur im echten Notfall anrufen."),
+                    primaryButton: .destructive(Text("Jetzt anrufen")) {
+                        if let url = URL(string: "tel://112") {
+                            UIApplication.shared.open(url)
+                        }
+                    },
+                    secondaryButton: .cancel(Text("Abbrechen"))
+                )
+            }
+        }
         .onReceive(timer) { _ in
             if phase == .compressions || phase == .breathing {
                 seconds += 1
@@ -117,8 +161,13 @@ struct CPRView: View {
         .onReceive(beatTimer) { _ in
             guard phase == .compressions else { return }
 
-            beat.toggle()
+            beat = true
             compressions += 1
+            feedback.impactOccurred(intensity: 0.7)
+
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.18) {
+                beat = false
+            }
 
             if compressions >= 30 {
                 phase = .breathing
@@ -135,9 +184,15 @@ struct CPRView: View {
                 startCompressions()
             }
         }
+        .onDisappear {
+            UIApplication.shared.isIdleTimerDisabled = false
+        }
     }
 
     private func startCompressions() {
+        UIApplication.shared.isIdleTimerDisabled = true
+        feedback.prepare()
+
         if phase == .breathing {
             cycle += 1
         }
