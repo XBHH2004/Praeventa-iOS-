@@ -3,6 +3,7 @@ import SwiftUI
 struct ContentView: View {
 
     @State private var selectedTab = 0
+    @State private var isEmergencyMode = false
 
     var body: some View {
 
