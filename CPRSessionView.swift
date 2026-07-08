@@ -22,27 +22,43 @@ struct CPRSessionView: View {
     var body: some View {
         VStack(spacing: 18) {
 
-            HStack {
-                VStack(alignment: .leading) {
-                    Text("❤️ REANIMATION")
+            VStack(alignment: .leading, spacing: 14) {
+                HStack(spacing: 10) {
+                    Image(systemName: "heart.text.square.fill")
+                        .font(.title2)
+                        .foregroundStyle(.red)
+
+                    Text("Reanimation")
                         .font(.title)
                         .fontWeight(.bold)
-
-                    Text(timeString)
-                        .font(.system(size: 38, weight: .bold, design: .rounded))
-                        .monospacedDigit()
                 }
 
-                Spacer()
+                HStack {
+                    VStack(alignment: .leading, spacing: 4) {
+                        Text(timeString)
+                            .font(.system(size: 38, weight: .bold, design: .rounded))
+                            .monospacedDigit()
 
-                VStack {
-                    Text("\(cycle)")
-                        .font(.system(size: 34, weight: .bold, design: .rounded))
-                    Text("Zyklus")
-                        .font(.caption)
-                        .foregroundStyle(.secondary)
+                        Text("Zeit seit Beginn")
+                            .font(.caption)
+                            .foregroundStyle(.secondary)
+                    }
+
+                    Spacer()
+
+                    VStack(alignment: .trailing, spacing: 4) {
+                        Text("\(cycle)")
+                            .font(.system(size: 34, weight: .bold, design: .rounded))
+
+                        Text("Zyklus")
+                            .font(.caption)
+                            .foregroundStyle(.secondary)
+                    }
                 }
             }
+            .padding()
+            .background(.thinMaterial)
+            .clipShape(RoundedRectangle(cornerRadius: 22))
 
             Spacer()
 
