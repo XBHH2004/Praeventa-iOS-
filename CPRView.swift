@@ -26,6 +26,7 @@ struct CPRView: View {
     @State private var phase: CPRPhase = .ready
     @State private var seconds = 0
     @State private var beat = false
+    @State private var demoBeat = false
     @State private var compressions = 0
     @State private var cycle = 1
     @State private var breathingCountdown = 5
@@ -34,6 +35,7 @@ struct CPRView: View {
     let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     let beatTimer = Timer.publish(every: 60.0 / 110.0, on: .main, in: .common).autoconnect()
     let breathingTimer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
+    let demoTimer = Timer.publish(every: 0.8, on: .main, in: .common).autoconnect()
 
     private let feedback = UIImpactFeedbackGenerator(style: .light)
 
@@ -52,7 +54,6 @@ struct CPRView: View {
                     Text(timeString)
                         .font(.system(size: 34, weight: .bold, design: .rounded))
                         .monospacedDigit()
-
                     Text("Zeit")
                         .font(.caption)
                         .foregroundStyle(.secondary)
@@ -63,7 +64,6 @@ struct CPRView: View {
                 VStack {
                     Text("\(cycle)")
                         .font(.system(size: 34, weight: .bold, design: .rounded))
-
                     Text("Zyklus")
                         .font(.caption)
                         .foregroundStyle(.secondary)
@@ -74,30 +74,69 @@ struct CPRView: View {
             .clipShape(RoundedRectangle(cornerRadius: 20))
 
             if phase == .breathing {
-                CPRBreathingView(countdown: breathingCountdown) {
-                    startCompressions()
+                CPRBreathingView(countdown: breathingCountdown)
+                    .frame(height: 300)
+            } else if phase == .ready || phase == .paused {
+                VStack(spacing: 14) {
+                    ZStack {
+                        Circle()
+                            .fill(Color.red.opacity(demoBeat ? 0.20 : 0.08))
+                            .frame(width: demoBeat ? 190 : 165, height: demoBeat ? 190 : 165)
+
+                        VStack(spacing: 8) {
+                            Image(systemName: "hand.raised.fill")
+                                .font(.system(size: 44))
+                                .foregroundStyle(.red)
+
+                            Text("Brustmitte drücken")
+                                .font(.title2)
+                                .fontWeight(.bold)
+                        }
+                    }
+                    .frame(width: 220, height: 220)
+                    .animation(.easeInOut(duration: 0.25), value: demoBeat)
+
+                    Text("Handballen in die Mitte des Brustkorbs. Arme gestreckt. Fest und schnell drücken.")
+                        .font(.subheadline)
+                        .multilineTextAlignment(.center)
+                        .foregroundStyle(.secondary)
+                        .padding(.horizontal)
+
+                    Text("100–120/min · 5–6 cm tief")
+                        .font(.headline)
+                        .foregroundStyle(.secondary)
                 }
-                .frame(height: 300)
+                .frame(height: 350)
             } else {
                 VStack(spacing: 8) {
                     CPRPulseView(beat: beat)
                     CPRCounter(compressions: compressions)
+
+                    Text("110 BPM")
+                        .font(.headline)
+                        .foregroundStyle(.secondary)
+
+                    Text("Kompressionstempo")
+                        .font(.caption)
+                        .foregroundStyle(.secondary)
                 }
                 .frame(height: 350)
             }
 
             Spacer(minLength: 4)
 
-            VStack(spacing: 10) {
-                PrimaryButton(
-                    title: phase == .compressions ? "Pause" : "Reanimation starten",
-                    systemImage: phase == .compressions ? "pause.fill" : "heart.fill",
-                    color: phase == .compressions ? .orange : .red
-                ) {
-                    if phase == .compressions {
-                        phase = .paused
-                    } else {
-                        startCompressions()
+            VStack(spacing: 12) {
+                if phase != .breathing {
+                    PrimaryButton(
+                        title: phase == .compressions ? "Pause" : "Reanimation starten",
+                        systemImage: phase == .compressions ? "pause.fill" : "heart.fill",
+                        color: phase == .compressions ? .orange : .red
+                    ) {
+                        if phase == .compressions {
+                            phase = .paused
+                        } else {
+                            startCompressions()
+                        }
                     }
                 }
 
@@ -109,10 +148,15 @@ struct CPRView: View {
                     activeAlert = .call
                 }
             }
+            .padding()
+            .background(.ultraThinMaterial)
+            .clipShape(RoundedRectangle(cornerRadius: 24))
+            .shadow(radius: 8)
         }
         .padding()
         .navigationTitle("Reanimation")
         .navigationBarTitleDisplayMode(.inline)
+        .toolbar(.hidden, for: .tabBar)
         .toolbar {
             ToolbarItem(placement: .topBarTrailing) {
                 Button {
@@ -156,6 +200,11 @@ struct CPRView: View {
         .onReceive(timer) { _ in
             if phase == .compressions || phase == .breathing {
                 seconds += 1
+            }
+        }
+        .onReceive(demoTimer) { _ in
+            if phase == .ready || phase == .paused {
+                demoBeat.toggle()
             }
         }
         .onReceive(beatTimer) { _ in

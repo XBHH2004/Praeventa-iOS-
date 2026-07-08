@@ -3,7 +3,6 @@ import SwiftUI
 struct CPRBreathingView: View {
 
     let countdown: Int
-    let onContinue: () -> Void
 
     var body: some View {
         VStack(spacing: 22) {
@@ -23,13 +22,6 @@ struct CPRBreathingView: View {
             Text("Wenn geschult und möglich. Sonst sofort weiterdrücken.")
                 .multilineTextAlignment(.center)
                 .foregroundStyle(.secondary)
-
-            PrimaryButton(
-                title: "Weiterdrücken",
-                systemImage: "heart.fill",
-                color: .red,
-                action: onContinue
-            )
         }
         .padding()
         .frame(maxWidth: .infinity)
@@ -39,5 +31,5 @@ struct CPRBreathingView: View {
 }
 
 #Preview {
-    CPRBreathingView(countdown: 3) { }
+    CPRBreathingView(countdown: 5)
 }
