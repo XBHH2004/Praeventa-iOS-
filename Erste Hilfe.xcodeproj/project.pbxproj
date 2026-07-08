@@ -31,6 +31,9 @@
 		431A99D92FFC7F8F001FBF93 /* CPRPulseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 431A99D82FFC7F8C001FBF93 /* CPRPulseView.swift */; };
 		431A99DB2FFC7FC4001FBF93 /* CPRBreathingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 431A99DA2FFC7FBE001FBF93 /* CPRBreathingView.swift */; };
 		431A99DE2FFC8D9F001FBF93 /* CPRView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 431A99DD2FFC8D5D001FBF93 /* CPRView.swift */; };
+		439913252FFF0C02005CFFB4 /* BUGS.md in Resources */ = {isa = PBXBuildFile; fileRef = 439913232FFF0C02005CFFB4 /* BUGS.md */; };
+		439913262FFF0C02005CFFB4 /* CPRDemoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 439913242FFF0C02005CFFB4 /* CPRDemoView.swift */; };
+		439913282FFF0C81005CFFB4 /* CPRSessionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 439913272FFF0C81005CFFB4 /* CPRSessionView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -59,6 +62,9 @@
 		431A99DA2FFC7FBE001FBF93 /* CPRBreathingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CPRBreathingView.swift; sourceTree = "<group>"; };
 		431A99DD2FFC8D5D001FBF93 /* CPRView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CPRView.swift; sourceTree = "<group>"; };
 		4384B36E2FF1E56E00B04CD7 /* Erste Hilfe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Erste Hilfe.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		439913232FFF0C02005CFFB4 /* BUGS.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = BUGS.md; sourceTree = "<group>"; };
+		439913242FFF0C02005CFFB4 /* CPRDemoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CPRDemoView.swift; sourceTree = "<group>"; };
+		439913272FFF0C81005CFFB4 /* CPRSessionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CPRSessionView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +82,9 @@
 			isa = PBXGroup;
 			children = (
 				431A99DD2FFC8D5D001FBF93 /* CPRView.swift */,
+				439913232FFF0C02005CFFB4 /* BUGS.md */,
+				439913242FFF0C02005CFFB4 /* CPRDemoView.swift */,
+				439913272FFF0C81005CFFB4 /* CPRSessionView.swift */,
 				431A99DA2FFC7FBE001FBF93 /* CPRBreathingView.swift */,
 				431A99D82FFC7F8C001FBF93 /* CPRPulseView.swift */,
 				431A99D62FFC7F35001FBF93 /* CPRCounter.swift */,
@@ -175,6 +184,7 @@
 				431A99B52FFC61E3001FBF93 /* app.html in Resources */,
 				431A99D52FFC7C8D001FBF93 /* ROADMAP.md in Resources */,
 				431A99B42FFC61AD001FBF93 /* Assets.xcassets in Resources */,
+				439913252FFF0C02005CFFB4 /* BUGS.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -197,7 +207,9 @@
 				431A99B22FFC619F001FBF93 /* Erste_HilfeApp.swift in Sources */,
 				431A99C52FFC70E3001FBF93 /* InfoCard.swift in Sources */,
 				431A99B12FFC6174001FBF93 /* ContentView.swift in Sources */,
+				439913282FFF0C81005CFFB4 /* CPRSessionView.swift in Sources */,
 				431A99DE2FFC8D9F001FBF93 /* CPRView.swift in Sources */,
+				439913262FFF0C02005CFFB4 /* CPRDemoView.swift in Sources */,
 				431A99D72FFC7F38001FBF93 /* CPRCounter.swift in Sources */,
 				431A99CD2FFC761A001FBF93 /* PanicModeView.swift in Sources */,
 				431A99D12FFC77E7001FBF93 /* BreathingDecisionView.swift in Sources */,

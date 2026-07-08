@@ -31,6 +31,7 @@ struct CPRView: View {
     @State private var cycle = 1
     @State private var breathingCountdown = 5
     @State private var activeAlert: CPRAlert?
+    @State private var showCPRSession = false
 
     let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     let beatTimer = Timer.publish(every: 60.0 / 110.0, on: .main, in: .common).autoconnect()
@@ -135,7 +136,7 @@ struct CPRView: View {
                         if phase == .compressions {
                             phase = .paused
                         } else {
-                            startCompressions()
+                            showCPRSession = true
                         }
                     }
                 }
@@ -232,6 +233,9 @@ struct CPRView: View {
             } else {
                 startCompressions()
             }
+        }
+        .fullScreenCover(isPresented: $showCPRSession) {
+            CPRSessionView()
         }
         .onDisappear {
             UIApplication.shared.isIdleTimerDisabled = false
